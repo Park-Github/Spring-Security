@@ -10,13 +10,12 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
-@Component
 @Slf4j
+@Component
 public class CustomAuthenticationFailureHandler implements AuthenticationFailureHandler {
-
     @Override
-    public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
-            AuthenticationException exception) throws IOException, ServletException {
+    public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception)
+            throws IOException, ServletException {
         log.error("Login failed due to : {}", exception.getMessage());
         response.sendRedirect("/login?error=true");
     }

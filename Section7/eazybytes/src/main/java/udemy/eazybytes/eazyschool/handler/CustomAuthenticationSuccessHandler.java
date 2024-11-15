@@ -10,15 +10,13 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
-@Component
 @Slf4j
+@Component
 public class CustomAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
-
     @Override
-    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
-            Authentication authentication) throws IOException, ServletException {
+    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication)
+            throws IOException, ServletException {
         log.info("Login successful for the user : {}", authentication.getName());
         response.sendRedirect("/dashboard");
     }
-
 }
